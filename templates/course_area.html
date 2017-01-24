@@ -3,13 +3,38 @@
     <title>Olin Course Catalog: {{ course_area }}</title>
     <style type="text/css">
       td, th { border: 0 !important; }
+      body { background-color: #edf3ff }
+      
+      dt { 
+        font-weight: bold;
+      }
+
+      dd {
+        /*-webkit-margin-before: 0.4em;
+        -webkit-margin-after: 3em; 
+        -webkit-margin-end:4em;*/
+        text-align: justify; 
+        text-justify: inter-word;
+      }
+
+      .boxed {
+        padding-bottom: 1em;
+        -webkit-margin-after: 3em;
+        background-color: #ddeaff
+      }
+
     </style>
   </head>
   <body>
+  <p>
+  {{ course_area }} Courses
+  </p>
     <dl>
       {% for index, course in courses %}
+      <div class="boxed">
         <dt>{{ course.course_number }}: {{ course.course_name }} ({{ course.course_contact }})</dt>
         <dd>{{ course.course_description }}</dd>
+      </div>
       {% endfor %}
     </dl>
   </body>
