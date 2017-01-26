@@ -68,15 +68,6 @@ for area in set(courses.course_area):
 
 	course_dict[area] = area_courses_dict
 
-print(course_dict['AHSE']['AHSE4199'])
-
-# course_dict = {
-# 	'AHS': {}
-# }
-
-# <dt>{{ course.course_number }}: {{ course.course_name }} ({{ course.course_contact }})</dt>
-# <dd>{{ course.course_description }}</dd>
-
 @app.route('/health')
 def health():
     return 'ok'
@@ -88,7 +79,6 @@ def home_page():
 @app.route('/area/<course_area>')
 def area_page(course_area):
    return render_template('course_area.html', course_area=course_area, courses=course_dict[course_area])  #course_dict[course_area])
-   #return render_template('course_area.html', course_area=course_area, courses=courses[courses.course_area == course_area].iterrows())
 
 if __name__ == '__main__':
     app.run(debug=True)
