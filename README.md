@@ -46,6 +46,7 @@ You shouldn't need to run this – in fact, running it too often may look like a
 As with all web scraping, this script is fragile – a minor change to the olin.edu web design or URL format
 could break it with no warning.
 
+`Bootstrap` is a HTML, CSS and JS framework used to make the course buttons on index.html.
 
 ## Contributors
 
