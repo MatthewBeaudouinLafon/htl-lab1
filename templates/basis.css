@@ -1,0 +1,7 @@
+body {
+	background-color: #edf3ff;
+}
+
+.n_underline, .n_underline::hover {
+	text-decoration: none !important;
+}

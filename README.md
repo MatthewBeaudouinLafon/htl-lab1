@@ -50,6 +50,7 @@ could break it with no warning.
 ## Contributors
 
 Written by Oliver Steele <oliver.steele@olin.edu>.
+		   Matthew Beaudouin-Lafon <matthew.beaudouin-lafon@students.olin.edu> (CSS styling, Back button in course area, clickable professors)
 
 
 ## License

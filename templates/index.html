@@ -3,20 +3,51 @@
     <title>Olin Course Catalog</title>
     <style type="text/css">
       td, th { border: 0 !important; }
+
+      h2 {
+        margin-left: 1em; 
+      }
+
+      .areas {
+        margin: 0em 1em 0em 1em;
+      }
+
+      .contact {
+        position: relative;
+        display: inline-block;
+        margin: 0em 2em 0.3em 0em;
+        color: darkblue;
+      }
+
+      .contact_row {
+        margin-left: 3em;
+        margin-right: 3em;
+      }
+      
     </style>
-    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/basis.css">
   </head>
   <body>
     <h2>Areas</h2>
-    {% for area in areas | sort %}
-      <ul>
-        <li><a href="/area/{{area}}">{{area}}</a></li>
-      </ul>
-    {% endfor %}
+    <div class="areas">
+      {% for area in areas | sort %}
+      <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-default n_underline"><a href="/area/{{area}}">{{area}}</a></button>
+      </div>
+      {% endfor %}
+    </div>
 
     <h2>Contacts</h2>
-    {% for contact in contacts | sort %}
-      {{contact}}
-    {% endfor %}
+    <div class="contact_row">
+      <div class="row">
+        {% for contact in contacts | sort %}
+        <div class="col-6 contact">
+          <a href="{{contact.email}}">{{contact.name}}</a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />
   </body>
 </html>

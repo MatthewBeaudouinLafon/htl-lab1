@@ -1,41 +1,91 @@
 <html>
   <head>
     <title>Olin Course Catalog: {{ course_area }}</title>
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/basis.css">
     <style type="text/css">
       td, th { border: 0 !important; }
-      body { background-color: #edf3ff }
       
       dt { 
         font-weight: bold;
+        text-decoration: none;
+        color: black;
       }
 
       dd {
-        /*-webkit-margin-before: 0.4em;
-        -webkit-margin-after: 3em; 
-        -webkit-margin-end:4em;*/
         text-align: justify; 
         text-justify: inter-word;
+        text-decoration: none;
+        color: black;
+      }
+
+      a {
+        color:black;
+        text-decoration: none;
+      }
+
+      .header {
+        text-align: center;
+      }
+
+      .title {
+        color: black;
+        font-size: 32px;
+        font-weight: bold;
+      }
+
+      .block {
+        margin: 0.5em;
+        text-decoration: none;
+      }
+
+      .back {
+        float: left;
+        border-style: solid;
+        border-color: grey;
+        border-width: 0px 3px 3px 0px;
+        border-radius: 5px;
+        color: black;
+        padding: 0.5em 0.9em 0.5em 0.8em;
+        display: inline-block;
+        background-color: #ddeaff;
+        text-decoration: none;
+      }
+
+      .back:hover {
+        border-width: 3px 0px 0px 3px;
+        border-color: #edf3ff;
+        text-decoration: none;
       }
 
       .boxed {
-        padding-bottom: 1em;
-        -webkit-margin-after: 3em;
+        color: black;
+        padding: 1em;
+        border-radius: 8px;
+        -webkit-margin-after: 2em;
         background-color: #ddeaff
       }
 
     </style>
   </head>
   <body>
-  <p>
-  {{ course_area }} Courses
-  </p>
+  <div class="header block n_underline">
+    <a href="/"  class="back">
+      < Back
+    </a> 
+    <div class="title">
+      {{ course_area }} Courses
+    </div> 
+  </div>
+
     <dl>
-      {% for index, course in courses %}
-      <div class="boxed">
-        <dt>{{ course.course_number }}: {{ course.course_name }} ({{ course.course_contact }})</dt>
-        <dd>{{ course.course_description }}</dd>
+      {% for course_number, course in courses.iteritems() %}
+      <div class="boxed block">
+        <dt>{{ course_number }}: {{ course.name }} ({% for prof in course.professors %} <a href="{{ prof.email }}">{{ prof.name }}</a> {% endfor %})</dt>
+        <dd>{{ course.description }}</dd>
       </div>
       {% endfor %}
     </dl>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />
   </body>
 </html>
