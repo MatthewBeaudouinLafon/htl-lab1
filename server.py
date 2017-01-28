@@ -8,6 +8,7 @@ license: MIT
 
 import os
 import sys
+from math import isnan
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
@@ -24,7 +25,11 @@ def prof_string_to_dicts(team):
 	eg: Hoffman, Aaron -> [{'name': 'Aaron Hoffman', 'email':'mailto:aaron.hoffman@olin.edu'}]
 	"""
 	prof_dicts = []
-	if type(team) is not str:
+	if type(team) == float and isnan(team):
+		return []
+
+	elif type(team) is not str:
+		print('{} == {}: {}'.format(team, float('NaN'), team==float('Nan')))
 		print("WARN: {} is not a string".format(team))
 		return []
 
@@ -88,4 +93,5 @@ def area_page(course_area):
    return render_template('course_area.html', course_area=course_area, courses=course_dict[course_area])  #course_dict[course_area])
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', debug=True, port=port)
