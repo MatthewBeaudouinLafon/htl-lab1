@@ -42,8 +42,15 @@ def prof_string_to_dicts(team):
 						last_name = "/".join(name[1:])
 						print('Weird looking name:{}, {}'.format(first_name, last_name))
 					email = "mailto:{}.{}@olin.edu".format(first_name.lower(), last_name.lower())
-					prof_dicts.append({"name": " ".join([first_name, last_name]),
-						   			   "email": email})
+					prof_dicts.append({
+						"name": " ".join([first_name, last_name]),
+						"email": email
+						})
+				else:
+					prof_dicts.append({
+						"name": "Staff"
+						"email": "/"
+						})
 	return prof_dicts
 
 # Get professors for index page
