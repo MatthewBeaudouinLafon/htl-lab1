@@ -48,7 +48,7 @@ def prof_string_to_dicts(team):
 						})
 				else:
 					prof_dicts.append({
-						"name": "Staff"
+						"name": "Staff",
 						"email": "/"
 						})
 	return prof_dicts
